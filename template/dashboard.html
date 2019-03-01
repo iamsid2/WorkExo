@@ -215,7 +215,7 @@ span.psw {
             <hr>
 
 
-            <button id="myButton" type="button" onClick="redirect()" class="cancelbtn">Submit</button>
+            <button id="myButton1" type="button" onClick="redirect()" class="cancelbtn">Submit</button>
         </div>
 
         
@@ -262,7 +262,7 @@ span.psw {
             <hr>
 
 
-            <button id="myButton" type="button" onClick="redirect()" class="cancelbtn">Submit</button>
+            <button id="myButton2" type="button" onClick="redirect()" class="cancelbtn">Submit</button>
         </div>
 
         
@@ -273,7 +273,11 @@ span.psw {
 </div>
 
 </div>
-    
+<div class="tm-col tm-col-small">
+                    <div class="bg-white tm-block h-100">
+                        
+                    </div>
+                </div>
 
 <script>
 // Get the modal
@@ -286,8 +290,11 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-document.getElementById("myButton").onclick = function () {
+document.getElementById("myButton2").onclick = function () {
     location.href = "index.html";
+};
+document.getElementById("myButton1").onclick = function () {
+    location.href = "allocate.html";
 };
 
 </script>
