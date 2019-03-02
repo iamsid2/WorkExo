@@ -73,21 +73,18 @@ $(document).ready(function () {
                 window.alert('please try again');
         })
     })
-    $('#reportspage').ready(function () {
+    $('#reportspage').ready(function (e) {
         $.get('http://127.0.0.1:8000/dash', function (data, status) {
-            console.log(data.length);
             name = '<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">'
             for (var i = 0; i < data.length; i++) {
                 name += '<li class="tm-list-group-item">' + data[i].name + '</li>';
             }
             name += '</ol>'
-            console.log(name);
             localStorage.setItem("name", name);
         })
     })
-    $('#productspage').ready(function () {
+    $('#productspage').ready(function (e) {
         $.get('http://127.0.0.1:8000/prod', function (data, status) {
-            console.log(data.length);
             details = '<table class="table table-hover table-striped tm-table-striped-even mt-3"id="details bootstrap_git_demo">'+'<thead>' +
                 '<tr class="tm-bg-gray">' +
                 '<th scope="col">&nbsp;</th>' +
