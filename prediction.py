@@ -29,10 +29,35 @@ def predict():
     job_involvement = request.form['job_involvement']
     hourly_rate = request.form['hourly_rate']
     standard_hrs = request.form['standard_hrs']
-    attributes = np.array([workers_no,working_hr,work_section])
+    attributes = np.array([work_type,job_involvement,hourly_rate,standard_hrs])
+    print(attributes)
     response = jsonify(predictor(attributes))
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
+
+def res(x):
+    if x == 1:
+        return 'Average'
+    elif x == 2:
+        return 'Good'
+    elif x == 3:
+        return 'Very Good'
+    elif x == 4:
+        return 'Excellent'
+
+
+def predictor(test):
+    classifier = pickle.load(open('model.sav', 'rb'))
+    test = test.reshape(1, -1)
+    print(test)
+    result = classifier.predict(test)
+    print("result")
+    print(result[0])
+    print(res(result[0]))    
+    ret = {'type' : "JSON/TXT"}
+    ret['result'] = str(res(result[0]))
+    print(ret)
+    return ret
 
 @app.route('/allot', methods=['POST'])
 def allot():

@@ -17,10 +17,12 @@ $(document).ready(function () {
         })
     })
     $('#predform').submit(function (e) {
-        var formdata = $('#predform').serializeObject();
-        // console.log(formdata);
-        // $.post('http://127.0.0.1:8000/predict', formdata, function(data, status) {
-        //     // console.log(data)
-        // })
+        e.preventDefault();
+        console.log("clicked");
+        var formdata = $('#predform').serializeArray();
+        console.log(formdata);
+        $.post('http://127.0.0.1:8000/predict', formdata, function(data, status) {
+            console.log(data)
+        })
     })
 })
