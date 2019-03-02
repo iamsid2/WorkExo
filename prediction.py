@@ -7,6 +7,13 @@ import pandas as pd
 import numpy as np
 import pickle
 import nexmo
+import datetime
+from pymongo import MongoClient
+client = MongoClient("mongodb://127.0.0.1:27017/")
+db = client['Workexo']
+collection = db['prev']
+prev = db.prev
+regd = db.regd
 
 with open("text_sms.json") as fp:
     data = json.load(fp)
@@ -67,16 +74,30 @@ def allot():
     contract_duration = np.fromstring(request.form['contract_duration'], dtype=float, sep=",")
     response1, response2 = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
     response1 = response1.tolist()
+    print(response1)
+    post = {"with":response1[(contracts_no)-1][len(worker_types)],
+            "without":response2[contracts_no-1]}
+    post_id = prev.insert_one(post).inserted_id
+    project = prev.find()
+    projects = []
+    graph = []
+    for i in project:
+        projects.append({'with':i['with'],'without':i['without']})
+    print(projects)
+    for k in range(len(projects)-4,len(projects)):
+        graph.append(projects[k])
+    print(graph)
     response1.append(response2)
-    for i in worker_types:
-        for j in range(0,len(data[''+i+''])):
-            print(data[''+i+''][j]["phone"])
-            client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
-            client.send_message({
-                'from': 'Workexo',
-                'to': data[''+i+''][j]["phone"],
-                'text': "Hello Department A. The project deadline is on 5th March 2019. Has your team submitted their final report yet? Make sure to update your progress in the dashboard and be prepared for the next site visit by Mr. John Doe. Please ignore if done. ",
-            })
+    response1.append(graph)
+    # for i in worker_types:
+    #     for j in range(0,len(data[''+i+''])):
+    #         print(data[''+i+''][j]["phone"])
+    #         client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
+    #         client.send_message({
+    #             'from': 'Workexo',
+    #             'to': data[''+i+''][j]["phone"],
+    #             'text': "Hello Department A. The project deadline is on 5th March 2019. Has your team submitted their final report yet? Make sure to update your progress in the dashboard and be prepared for the next site visit by Mr. John Doe. Please ignore if done. ",
+    #         })
     response1 = jsonify(response1)
     response1.headers.add('Access-Control-Allow-Origin', '*')
     return response1
@@ -101,5 +122,24 @@ def allotment(contracts_no,worker_types,worker_no,working_share,contract_duratio
             allot[i][j] = allot[i][j-1] + s[i][j-1]           
     return allot, cummulative_freq
         
+@app.route('/regd',methods=['POST'])
+def regd():
+    name = request.form['name']
+    phone = request.form['phone']
+    skilss = request.form['skills']
+    post = {"name":name,
+            "phone":phone,
+            "skills":skills}
+    post_id = regd.insert_one(post).inserted_id
+
+@app.route('/dash',methods=['POST'])
+def dash():
+    resp = regd.find()
+    workers = []
+    for i in workers:
+        workers.append({'name':i['name'],'phone':i['phone'],'skills':i['skills']})
+    print(workers)
+    return workers
+
 
 app.run(port=8000, debug=True)
