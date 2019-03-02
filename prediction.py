@@ -31,29 +31,33 @@ def predict():
 
 @app.route('/allot', methods=['POST'])
 def allot():
-    contracts_no = request.form['contracts_no']
-    worker_types = request.form['worker_types']
-    worker_no = request.form['worker_no']
-    working_share = request.form['working_share']
-    contract_duration = request.form['contract_duration']
-    allotment = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
-    client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
-    client.send_message({
-        'from': 'Workexo',
-        'to': '918270857295',
-        'text': 'Hello from Nexmo',
-    })
-    return allotment
-def allotment(contracts_no,worker_types,worker_no,working_share,contract_duation):
+    print("hello")
+    print(request.form)
+    contracts_no = int(request.form['contracts_no'])
+    worker_types = np.array(request.form['worker_types'].split(","))
+    worker_no = np.fromstring(request.form['worker_no'], dtype=float, sep=",")
+    working_share = np.fromstring(request.form['working_share'], dtype=float, sep=",")
+    contract_duration = np.fromstring(request.form['contract_duration'], dtype=float, sep=",")
+    response = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
+    response = response.tolist()
+    # client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
+    # client.send_message({
+    #     'from': 'Workexo',
+    #     'to': '918270857295',
+    #     'text': 'Hello from Nexmo',
+    # })
+    response = jsonify(response)
+    return response
+def allotment(contracts_no,worker_types,worker_no,working_share,contract_duration):
     cummulative_freq = []
     s = []
     cummulative_freq.append(contract_duration[0])
     for i in range(1, contracts_no):
         cummulative_freq.append(cummulative_freq[i-1]+contract_duration[i])
-    print(cummulative_freq)
-    for i in range(len(contract_duration)):
+    for i in range(contracts_no):
         for j in range (len(worker_types)):
             s.append(contract_duration[i]*working_share[j] / worker_no[j])
+            
     s = np.reshape(s, (len(contract_duration), len(worker_types)))     
     
     allot = np.zeros(shape = (len(contract_duration), len(worker_types) + 1))
