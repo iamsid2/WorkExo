@@ -104,7 +104,7 @@ function drawBarChart() {
         labels: ["1", "2", "3", "4", "5"],
         datasets: [
           {
-            label: "Before OOA",
+            label: "Before OAA",
             data: [18, 20, 14, 23, 3],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
@@ -127,7 +127,7 @@ function drawBarChart() {
             borderWidth: 1
           },
           {
-            label: "After OOA",
+            label: "After OAA",
             data: [13.5, 8.4, 6.4, 6.85, 3],
             backgroundColor: [
               "rgba(54, 162, 235, 0.2)",
