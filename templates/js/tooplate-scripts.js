@@ -21,7 +21,7 @@ function drawLineChart() {
         ]
       }
     };
-
+    console.log("Hello"+cw);
     // Set aspect ratio based on window width
     optionsLine.maintainAspectRatio =
       $(window).width() < width_threshold ? false : true;
@@ -40,17 +40,17 @@ function drawLineChart() {
           "7"
         ],
         datasets: [
-          
+
           {
             label: "Contracts Deadline",
-            data: [0,3, 8, 13, 18],
+            data: JSON.parse("["+cw+"]"),
             fill: false,
             borderColor: "rgba(255,99,132,1)",
             lineTension: 0.1
           },
           {
             label: "Predicted time of completion",
-            data: [0,3, 6.9, 10.2, 13.5],
+            data: JSON.parse("["+coa+"]"),
             fill: false,
             borderColor: "rgba(153, 102, 255, 1)",
             lineTension: 0.1
@@ -113,7 +113,7 @@ function drawBarChart() {
               "rgba(255, 99, 132, 0.2)",
               "rgba(255, 99, 132, 0.2)",
               "rgba(255, 99, 132, 0.2)"
-              
+
             ],
             borderColor: [
               "rgba(255, 99, 132, 2)",
@@ -122,7 +122,7 @@ function drawBarChart() {
               "rgba(255, 99, 132, 2)",
               "rgba(255, 99, 132, 2)",
               "rgba(255, 99, 132, 2)"
-              
+
             ],
             borderWidth: 1
           },
@@ -136,7 +136,7 @@ function drawBarChart() {
               "rgba(54, 162, 235, 0.2)",
               "rgba(54, 162, 235, 0.2)",
               "rgba(54, 162, 235, 0.2)"
-              
+
             ],
             borderColor: [
               "rgba(54, 162, 235, 2)",
@@ -145,7 +145,7 @@ function drawBarChart() {
               "rgba(54, 162, 235, 2)",
               "rgba(54, 162, 235, 2)",
               "rgba(54, 162, 235, 2)",
-              
+
             ],
             borderWidth: 1
           }
