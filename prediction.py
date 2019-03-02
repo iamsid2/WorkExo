@@ -5,19 +5,25 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 import pickle
+import nexmo
 
-app = Flask(_name_)
+app = Flask(__name__)
 CORS(app)
 
 @app.route('/')
 def webprint():
-    return render_template('/visualisation/index.html') 
+    return render_template('login.html') 
+
+@app.route('/dashboard.html', methods=['POST'])
+def webprint1():
+    return render_template('dashboard.html') 
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    wokers_no = float(request.form['workers_no'])
-    working_hr = float(request.form['working_hr'])
-    work_section = float(request.form['work_section'])
+    work_type = request.form['work_type']
+    job_involvement = request.form['job_involvement']
+    hourly_rate = request.form['hourly_rate']
+    standard_hrs = request.form['standard_hrs']
     attributes = np.array([workers_no,working_hr,work_section])
     response = jsonify(predictor(attributes))
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -26,13 +32,19 @@ def predict():
 @app.route('/allot', methods=['POST'])
 def allot():
     contracts_no = request.form['contracts_no']
-    worker_types = request.from['worker_types']
-    worker_no = request.from['worker_no']
-    working_share = request.from['working_share']
-    contract_duration = request.from['contract_duration']
-    allotment = allotment(contracts_no,worker_types,worker_no,working_share,contract_duation)
+    worker_types = request.form['worker_types']
+    worker_no = request.form['worker_no']
+    working_share = request.form['working_share']
+    contract_duration = request.form['contract_duration']
+    allotment = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
+    client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
+    client.send_message({
+        'from': 'Workexo',
+        'to': '918270857295',
+        'text': 'Hello from Nexmo',
+    })
     return allotment
-def allotment(contracts_no, worker_types, worker_no, working_share, contract_duration):
+def allotment(contracts_no,worker_types,worker_no,working_share,contract_duation):
     s = []
     for i in range(len(contract_duration)):
         for j in range (len(worker_types)):
@@ -47,4 +59,6 @@ def allotment(contracts_no, worker_types, worker_no, working_share, contract_dur
             allot[i][0] = allot[i-1][1] 
         for j in range(1, len(worker_types)):
             allot[i][j] = allot[i][j-1] + s[i][j-1]
-    print(allot)
+    return allot
+
+app.run(port=8000, debug=True)
