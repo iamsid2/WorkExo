@@ -276,7 +276,7 @@
       <!-- allocating form modal id 01 -->
       <div id="id01" class="modal">
 
-        <div class="imgcontainer">
+        <div class="imgcontainer containermodal" style="position:absolute; left:450px">
           <span onclick="document.getElementById('id01').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         </div>
@@ -311,9 +311,9 @@
       </div> -->
       <!-- PREDICTION FORM  MODAL ID02 -->
       <div id="id02" class="modal">
-        <div class="imgcontainer">
+        <div class="imgcontainer containermodal" style="position:absolute; left:450px">
           <span onclick="document.getElementById('id02').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+            title="Close Modal" >&times;</span>
 
         </div>
         <div class="containermodal" style="background-color:#f1f1f1">
@@ -324,11 +324,11 @@
               <p>Please fill in this form</p>
               <hr>
               <label for="work_type"><b>Department</b></label>
-              <select class="form-control" type="text" id="fvunit" name="work_type" required>
-                <option style="color:black;">Select</option>
-                <option value=0 style="color:black;">Human Resource</option>
-                <option value=1 style="color:black;">Research & Development</option>
-                <option value=2 style="color:black;">Sales</option>
+              <select class="form-control" type="text" id="fvunit" name="work_type" style="font-size: 10px;" required>
+                <option style="color:black; font-size: 15px">Select</option>
+                <option value=0 style="color:black;font-size: 15px">Human Resource</option>
+                <option value=1 style="color:black;font-size: 15px">Research & Development</option>
+                <option value=2 style="color:black;font-size: 15px">Sales</option>
               </select><br>
               <label for="job_involvement"><b>Share of Job</b></label><br>
               <input type="number" placeholder="Enter share" name="job_involvement" required><br>
