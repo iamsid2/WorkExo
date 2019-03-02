@@ -17,8 +17,8 @@ $(document).ready(function () {
             cumulative_freq = data[(data.length) - 1];
             data.pop();
             c_oaa = []
-            for(var i =0;i<(formdata[0].value);i++) {
-              c_oaa.push(data[i][(formdata[0].value)-1])
+            for (var i = 0; i < (formdata[0].value); i++) {
+                c_oaa.push(data[i][(formdata[0].value) - 1])
             }
             console.log(cumulative_freq);
             console.log("Bye"+data);
@@ -44,8 +44,8 @@ $(document).ready(function () {
             localStorage.setItem("bar", bar_graph);
             //Local Path
             var loc = window.location.pathname;
-            var dir = loc.substring(0,loc.lastIndexOf('/'));
-            location.href= dir+"/report.html";
+            var dir = loc.substring(0, loc.lastIndexOf('/'));
+            location.href = dir + "/report.html";
 
 
         })
@@ -58,7 +58,7 @@ $(document).ready(function () {
         $.post('http://127.0.0.1:8000/predict', formdata, function (data, status) {
             console.log(data);
             $("#resultmodal").show();
-            $("#resultpara").html("<b>The perforamance rating of the worker is:- "+data.result+"<b>");
+            $("#resultpara").html("<b>The perforamance rating of the worker is:- " + data.result + "<b>");
         })
     })
     $('#regdform').submit(function (e) {
@@ -67,14 +67,46 @@ $(document).ready(function () {
         var formdata = $('#regdform').serializeArray();
         console.log(formdata);
         $.post('http://127.0.0.1:8000/regd', formdata, function (data, status) {
-            console.log(data);
+            if (data == "1")
+                window.alert('successfully registered');
+            else
+                window.alert('please try again');
         })
     })
-    $('#dashform').submit(function (e) {
-        e.preventDefault();
-        console.log("clicked");
-        $.post('http://127.0.0.1:8000/dash', function (data, status) {
-            console.log(data);
+    $('#reportspage').ready(function () {
+        $.get('http://127.0.0.1:8000/dash', function (data, status) {
+            console.log(data.length);
+            name = '<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">'
+            for (var i = 0; i < data.length; i++) {
+                name += '<li class="tm-list-group-item">' + data[i].name + '</li>';
+            }
+            name += '</ol>'
+            console.log(name);
+            localStorage.setItem("name", name);
+        })
+    })
+    $('#productspage').ready(function () {
+        $.get('http://127.0.0.1:8000/prod', function (data, status) {
+            console.log(data.length);
+            details = '<table class="table table-hover table-striped tm-table-striped-even mt-3"id="details bootstrap_git_demo">'+'<thead>' +
+                '<tr class="tm-bg-gray">' +
+                '<th scope="col">&nbsp;</th>' +
+                '<th scope="col">Worker Name</th>' +
+                '<th scope="col" class="text-center">Phone Number</th>' +
+
+                '<th scope="col">Skills</th>' +
+                '<th scope="col">&nbsp;</th>' +
+                '</tr>' +
+                '</thead>' + '<tbody>'
+            for (var i = 0; i < data.length; i++) {
+                details += '<tr><th scope="row">' +
+                    '<input type="checkbox" aria-label="Checkbox">' +
+                    '</th>' + '<td class="tm-product-name">'+(i+1)+'.'+data[i].name + '</td>' +
+                    '<td class="text-center">' + data[i].phone + '</td>' +
+                    '<td>' + data[i].skills + '</td><td><i class="fas fa-trash-alt tm-trash-icon"></i></td></tr>'
+            }
+            details += '</tbody>'+'</table>'
+            localStorage.setItem("details", details);
         })
     })
 })
