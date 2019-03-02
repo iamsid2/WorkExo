@@ -214,32 +214,10 @@
                 <h2 class="tm-block-title d-inline-block">New Applicants List</h2>
               </div>
               <div class="col-4 text-right">
-                <a href="products.html" class="tm-link-black">View All</a>
+                <a id="view" href="products.html" class="tm-link-black">View All</a>
               </div>
             </div>
-            <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-              <li class="tm-list-group-item">
-                Donec eget libero
-              </li>
-              <li class="tm-list-group-item">
-                Nunc luctus suscipit elementum
-              </li>
-              <li class="tm-list-group-item">
-                Maecenas eu justo maximus
-              </li>
-              <li class="tm-list-group-item">
-                Pellentesque auctor urna nunc
-              </li>
-              <li class="tm-list-group-item">
-                Sit amet aliquam lorem efficitur
-              </li>
-              <li class="tm-list-group-item">
-                Pellentesque auctor urna nunc
-              </li>
-              <li class="tm-list-group-item">
-                Sit amet aliquam lorem efficitur
-              </li>
-            </ol>
+            <div id="names"></div>
           </div>
         </div>
         <div class="tm-col tm-col-big">
@@ -297,7 +275,7 @@
               <label for="working_share"><b>Share of Workers</b></label>
               <input type="text" placeholder="Enter Share" name="working_share" required>
               <label for="contract_duration"><b>Number of Working days for each contract</b></label>
-              <input type="text" placeholder="Enter Working hrs" name="contract_duration" required>
+              <input type="text" placeholder="Enter Share" name="contract_duration" required>
               <hr>
               <!-- <button id="myButton1" type="submit" class="allotment">Submit</button> -->
               <button id="myButton1" type="submit" class="allotment">submit</button>
@@ -313,7 +291,7 @@
       <div id="id02" class="modal">
         <div class="imgcontainer containermodal" style="position:absolute; left:450px">
           <span onclick="document.getElementById('id02').style.display='none'" class="close"
-            title="Close Modal" >&times;</span>
+            title="Close Modal">&times;</span>
 
         </div>
         <div class="containermodal" style="background-color:#f1f1f1">
@@ -380,6 +358,10 @@
         reloadPage();
       });
     })
+
+    var x = localStorage.getItem("name");
+    console.log(x);
+    document.getElementById('names').innerHTML = x;
   </script>
 </body>
 

@@ -13,7 +13,6 @@ client = MongoClient("mongodb://127.0.0.1:27017/")
 db = client['Workexo']
 collection = db['prev']
 prev = db.prev
-regd = db.regd
 
 with open("text_sms.json") as fp:
     data = json.load(fp)
@@ -126,21 +125,38 @@ def allotment(contracts_no,worker_types,worker_no,working_share,contract_duratio
 
 @app.route('/regd',methods=['POST'])
 def regd():
+    collection = db['regd']
+    regd = db.regd
     name = request.form['name']
     phone = request.form['phone']
-    skilss = request.form['skills']
+    skills = request.form['skills']
     post = {"name":name,
             "phone":phone,
             "skills":skills}
     post_id = regd.insert_one(post).inserted_id
+    if not post_id:
+        return "0"
+    else:
+        return "1"
 
-@app.route('/dash',methods=['POST'])
+@app.route('/dash',methods=['GET'])
 def dash():
+    regd = db.regd
     resp = regd.find()
     workers = []
-    for i in workers:
+    for i in resp:
         workers.append({'name':i['name'],'phone':i['phone'],'skills':i['skills']})
-    print(workers)
+    workers = jsonify(workers)
+    return workers
+
+@app.route('/prod',methods=['GET'])
+def prod():
+    regd = db.regd
+    resp = regd.find()
+    workers = []
+    for i in resp:
+        workers.append({'name':i['name'],'phone':i['phone'],'skills':i['skills']})
+    workers = jsonify(workers)
     return workers
 
 
