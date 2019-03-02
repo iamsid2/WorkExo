@@ -1,5 +1,6 @@
 $(document).ready(function () {
     console.log("script linked");
+    var m,n;
     $('#allotform').submit(function (e) {
         e.preventDefault();
         console.log("clicked");
@@ -14,6 +15,28 @@ $(document).ready(function () {
             data.pop();
             console.log(cumulative_freq);
             console.log(data);
+            m = formdata[0].value;
+            n = formdata[1].value.length + 1;
+            console.log(m);
+            console.log(n);
+            var myTable = "<table>";
+            for (var i = 0; i < m; i++) {
+                myTable +="<tr>";
+                console.log("Hello");
+                for (var j = 0; j < n; j++) {
+                        myTable += "<td style='width: 100px; color: black;'>" + data[i][j].toFixed(2) + "</td>";
+                        }
+                myTable +="</tr>";
+            }
+            myTable += "</table>";
+            console.log(myTable);
+            localStorage.setItem("table", myTable);
+            // window.onload = function() {
+            //     localStorage.setItem("table",myTable);
+            // }
+            location.href="file:///home/nfatma/WorkExo/templates/report.html";
+            // document.getElementById('myTable').innerHTML = myTable;
+
         })
     })
     $('#predform').submit(function (e) {
