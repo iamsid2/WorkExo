@@ -10,7 +10,6 @@ import nexmo
 
 with open("text_sms.json") as fp:
     data = json.load(fp)
-print(len(data['a']))
 
 app = Flask(__name__)
 CORS(app)
@@ -49,10 +48,8 @@ def res(x):
 def predictor(test):
     classifier = pickle.load(open('model.sav', 'rb'))
     test = test.reshape(1, -1)
-    print(test)
     result = classifier.predict(test)
     print("result")
-    print(result[0])
     print(res(result[0]))    
     ret = {'type' : "JSON/TXT"}
     ret['result'] = str(res(result[0]))
