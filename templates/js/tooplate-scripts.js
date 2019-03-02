@@ -256,7 +256,7 @@ function drawCalendar() {
         },
         {
           title: "Review",
-          start: "2018-11-12"
+          start: "2019-1-1"
         },
         {
           title: "Plan",
