@@ -68,15 +68,15 @@ def allot():
     response1, response2 = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
     response1 = response1.tolist()
     response1.append(response2)
-    # for i in worker_types:
-    #     for j in range(0,len(data[''+i+''])):
-    #         print(data[''+i+''][j]["phone"])
-    #         client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
-    #         client.send_message({
-    #             'from': 'Workexo',
-    #             'to': data[''+i+''][j]["phone"],
-    #             'text': "please do your pending works according to your allotment",
-    #         })
+    for i in worker_types:
+        for j in range(0,len(data[''+i+''])):
+            print(data[''+i+''][j]["phone"])
+            client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
+            client.send_message({
+                'from': 'Workexo',
+                'to': data[''+i+''][j]["phone"],
+                'text': "Hello Department A. The project deadline is on 5th March 2019. Has your team submitted their final report yet? Make sure to update your progress in the dashboard and be prepared for the next site visit by Mr. John Doe. Please ignore if done. ",
+            })
     response1 = jsonify(response1)
     response1.headers.add('Access-Control-Allow-Origin', '*')
     return response1
