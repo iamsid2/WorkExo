@@ -237,18 +237,13 @@
           </form>
         </div>
       </div>
-      <!-- <div id="resultmodal" class="modal">
-        <h1>hii</h1>
-      </div> -->
+
       <!-- PREDICTION FORM  MODAL ID02 -->
       <div id="id02" class="modal">
-
         <div class="imgcontainer">
           <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
-
         </div>
-
         <div class="container" style="background-color:#f1f1f1">
           <form id="predform" class="form-custom">
             <div class="container">
@@ -256,7 +251,7 @@
               <p>Please fill in this form</p>
               <hr>
               <label for="work_type"><b>Deartment</b></label>
-              <select class="form-control" type="text" id="fvunit" name="work_type"required>
+              <select class="form-control" type="text" id="fvunit" name="work_type" required>
                 <option style="color:black;">Select</option>
                 <option value=0 style="color:black;">Human Resource</option>
                 <option value=1 style="color:black;">Research & Development</option>
@@ -273,7 +268,16 @@
             </div>
           </form>
         </div>
-
+      </div>
+      <div id="resultmodal" class="modal">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('resultmodal').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+          <h1>Result</h1>
+          <p id="resultpara"></p>
+        </div>
       </div>
       <!-- <div class="tm-col tm-col-small">
         <div class="bg-white tm-block h-100">

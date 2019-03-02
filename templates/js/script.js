@@ -22,7 +22,9 @@ $(document).ready(function () {
         var formdata = $('#predform').serializeArray();
         console.log(formdata);
         $.post('http://127.0.0.1:8000/predict', formdata, function(data, status) {
-            console.log(data)
+            console.log(data);
+            $("#resultmodal").show();
+            $("#resultpara").html(data.result);
         })
     })
 })
