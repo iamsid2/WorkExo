@@ -15,6 +15,10 @@ $(document).ready(function () {
             console.log(graph);
             cumulative_freq = data[(data.length) - 1];
             data.pop();
+            c_oaa = []
+            for(var i =0;i<(formdata[0].value);i++) {
+              c_oaa.push(data[i][(formdata[0].value)-1])
+            }
             console.log(cumulative_freq);
             console.log(data);
             m = formdata[0].value;
@@ -31,12 +35,15 @@ $(document).ready(function () {
                 myTable += "</tr>";
             }
             myTable += "</table>";
-            console.log(myTable);
             localStorage.setItem("table", myTable);
-            // window.onload = function() {
-            //     localStorage.setItem("table",myTable);
-            // }
-            location.href = "file:///home/abinash/Documents/Project/WorkExo/templates/report.html";
+            localStorage.setItem("c_w", cumulative_freq);
+            localStorage.setItem("c_oaa", c_oaa);
+            //Local Path
+            var loc = window.location.pathname;
+            var dir = loc.substring(0,loc.lastIndexOf('/'));
+            location.href= dir+"/report.html";
+
+
         })
     })
     $('#predform').submit(function (e) {
@@ -47,7 +54,7 @@ $(document).ready(function () {
         $.post('http://127.0.0.1:8000/predict', formdata, function (data, status) {
             console.log(data);
             $("#resultmodal").show();
-            $("#resultpara").html(data.result);
+            $("#resultpara").html("<b>The perforamance rating of the worker is:- "+data.result+"<b>");
         })
     })
     $('#regdform').submit(function (e) {

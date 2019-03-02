@@ -142,6 +142,8 @@
             configPie,
             lineChart;
         barChart, pieChart;
+        var cw = localStorage.getItem("c_w");
+        var coa = localStorage.getItem("c_oaa");
         // DOM is ready
         $(function () {
             updateChartOptions();
@@ -161,7 +163,6 @@
     <script type="text/javascript">
         // window.onload = alert(localStorage.getItem("table"));
         var x = localStorage.getItem("table");
-        console.log(x);
         document.getElementById('tablePrint').innerHTML = x;
     </script>
 </body>
