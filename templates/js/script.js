@@ -30,9 +30,11 @@ $(document).ready(function () {
                 myTable += "<tr>";
                 console.log("Hello");
                 for (var j = 0; j < n; j++) {
-                    myTable += "<td style='width: 100px; color: black;'>" + data[i][j].toFixed(2) + "</td>";
+                    myTable += "<td style='width: 100px; color: black;'>" + data[i][j].toFixed(2) + "</td>" + "<hr>";
+
                 }
                 myTable += "</tr>";
+
             }
             myTable += "</table>";
             localStorage.setItem("table", myTable);

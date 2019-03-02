@@ -486,6 +486,14 @@ footer {
   }
 }
 
+.Table{
+ background-color: rgba(54, 162, 235, 0.2);
+ text-align: center;
+ border: 1px solid black;
+ column-rule: 4px double #ff00ff;
+}
+
+
 @media (max-width: 633px) {
   .pagination {
     flex-wrap: wrap;
