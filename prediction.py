@@ -43,19 +43,21 @@ def allot():
     worker_no = np.fromstring(request.form['worker_no'], dtype=float, sep=",")
     working_share = np.fromstring(request.form['working_share'], dtype=float, sep=",")
     contract_duration = np.fromstring(request.form['contract_duration'], dtype=float, sep=",")
-    response = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
-    response = response.tolist()
-    for i in worker_types:
-        for j in range(0,len(data[''+i+''])):
-            print(data[''+i+''][j]["phone"])
-            client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
-            client.send_message({
-                'from': 'Workexo',
-                'to': data[''+i+''][j]["phone"],
-                'text': "please do your pending works according to your allotment",
-            })
-    response = jsonify(response)
-    return response
+    response1, response2 = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
+    response1 = response1.tolist()
+    response1.append(response2)
+    # for i in worker_types:
+    #     for j in range(0,len(data[''+i+''])):
+    #         print(data[''+i+''][j]["phone"])
+    #         client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
+    #         client.send_message({
+    #             'from': 'Workexo',
+    #             'to': data[''+i+''][j]["phone"],
+    #             'text': "please do your pending works according to your allotment",
+    #         })
+    response1 = jsonify(response1)
+    response1.headers.add('Access-Control-Allow-Origin', '*')
+    return response1
 def allotment(contracts_no,worker_types,worker_no,working_share,contract_duration):
     cummulative_freq = []
     s = []
@@ -74,9 +76,8 @@ def allotment(contracts_no,worker_types,worker_no,working_share,contract_duratio
         if i < len(contract_duration) and i >0:
             allot[i][0] = allot[i-1][1] 
         for j in range(1, len(worker_types) + 1):
-            allot[i][j] = allot[i][j-1] + s[i][j-1]
-            
-    return allot
+            allot[i][j] = allot[i][j-1] + s[i][j-1]           
+    return allot, cummulative_freq
         
 
 app.run(port=8000, debug=True)

@@ -10,6 +10,9 @@ $(document).ready(function () {
         formdata[3].value = formdata[3].value.split(" ");
         formdata[4].value = formdata[4].value.split(" ");
         $.post('http://127.0.0.1:8000/allot', formdata, function (data, status) {
+            cumulative_freq = data[(data.length)-1];
+            data.pop();
+            console.log(cumulative_freq);
             console.log(data);
         })
     })
