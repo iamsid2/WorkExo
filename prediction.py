@@ -1,11 +1,16 @@
 from flask import Flask, request, jsonify, render_template
 import json
+from pprint import pprint
 from flask_cors import CORS
 
 import pandas as pd
 import numpy as np
 import pickle
 import nexmo
+
+with open("text_sms.json") as fp:
+    data = json.load(fp)
+print(len(data['a']))
 
 app = Flask(__name__)
 CORS(app)
@@ -40,12 +45,15 @@ def allot():
     contract_duration = np.fromstring(request.form['contract_duration'], dtype=float, sep=",")
     response = allotment(contracts_no,worker_types,worker_no,working_share,contract_duration)
     response = response.tolist()
-    # client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
-    # client.send_message({
-    #     'from': 'Workexo',
-    #     'to': '918270857295',
-    #     'text': 'Hello from Nexmo',
-    # })
+    for i in worker_types:
+        for j in range(0,len(data[''+i+''])):
+            print(data[''+i+''][j]["phone"])
+            client = nexmo.Client(key='7d7f3c5f', secret='ha8U5VQTNBGglH9h')
+            client.send_message({
+                'from': 'Workexo',
+                'to': data[''+i+''][j]["phone"],
+                'text': "please do your pending works according to your allotment",
+            })
     response = jsonify(response)
     return response
 def allotment(contracts_no,worker_types,worker_no,working_share,contract_duration):
