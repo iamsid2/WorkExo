@@ -5,11 +5,17 @@ function drawLineChart() {
     ctxLine = document.getElementById("lineChart").getContext("2d");
     optionsLine = {
       scales: {
+        xAxes: [{
+          scaleLabel:
+         { display: true,
+          labelString: "No. of contracts"
+         }
+        }],
         yAxes: [
           {
             scaleLabel: {
               display: true,
-              labelString: "Hits"
+              labelString: "No. of days"
             }
           }
         ]
@@ -24,32 +30,27 @@ function drawLineChart() {
       type: "line",
       data: {
         labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July"
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
         ],
         datasets: [
+          
           {
-            label: "Latest Hits",
-            data: [88, 68, 79, 57, 56, 55, 70],
-            fill: false,
-            borderColor: "rgb(75, 192, 192)",
-            lineTension: 0.1
-          },
-          {
-            label: "Popular Hits",
-            data: [33, 45, 37, 21, 55, 74, 69],
+            label: "Contracts Deadline",
+            data: [0,3, 8, 13, 18],
             fill: false,
             borderColor: "rgba(255,99,132,1)",
             lineTension: 0.1
           },
           {
-            label: "Featured",
-            data: [44, 19, 38, 46, 85, 66, 79],
+            label: "Predicted time of completion",
+            data: [0,3, 6.9, 10.2, 13.5],
             fill: false,
             borderColor: "rgba(153, 102, 255, 1)",
             lineTension: 0.1
@@ -70,6 +71,16 @@ function drawBarChart() {
     optionsBar = {
       responsive: true,
       scales: {
+        xAxes: [
+          {
+            ticks: {
+              beginAtZero: true
+            },
+            scaleLabel: {
+              display: true,
+              labelString: "Project Timeline"
+            }
+          }],
         yAxes: [
           {
             ticks: {
@@ -77,7 +88,7 @@ function drawBarChart() {
             },
             scaleLabel: {
               display: true,
-              labelString: "Hits"
+              labelString: "No. of Days"
             }
           }
         ]
@@ -90,26 +101,51 @@ function drawBarChart() {
     configBar = {
       type: "bar",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["1", "2", "3", "4", "5"],
         datasets: [
           {
-            label: "# of Hits",
-            data: [12, 19, 3, 5, 2, 3],
+            label: "Before OOA",
+            data: [18, 20, 14, 23, 3],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)"
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(255, 99, 132, 0.2)"
+              
             ],
             borderColor: [
-              "rgba(255,99,132,1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)"
+              "rgba(255, 99, 132, 2)",
+              "rgba(255, 99, 132, 2)",
+              "rgba(255, 99, 132, 2)",
+              "rgba(255, 99, 132, 2)",
+              "rgba(255, 99, 132, 2)",
+              "rgba(255, 99, 132, 2)"
+              
+            ],
+            borderWidth: 1
+          },
+          {
+            label: "After OOA",
+            data: [13.5, 8.4, 6.4, 6.85, 3],
+            backgroundColor: [
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(54, 162, 235, 0.2)"
+              
+            ],
+            borderColor: [
+              "rgba(54, 162, 235, 2)",
+              "rgba(54, 162, 235, 2)",
+              "rgba(54, 162, 235, 2)",
+              "rgba(54, 162, 235, 2)",
+              "rgba(54, 162, 235, 2)",
+              "rgba(54, 162, 235, 2)",
+              
             ],
             borderWidth: 1
           }
@@ -135,15 +171,15 @@ function drawPieChart() {
       data: {
         datasets: [
           {
-            data: [4600, 5400],
+            data: [3600,6400],
             backgroundColor: [
               window.chartColors.purple,
               window.chartColors.green
             ],
-            label: "Storage"
+            label: "Workers"
           }
         ],
-        labels: ["Used: 4,600 GB", "Available: 5,400 GB"]
+        labels: ["Used: 3,600 ", "Available: 6,400 "]
       },
       options: optionsPie
     };
