@@ -282,7 +282,7 @@
         </div>
 
 
-        <div id="form" class="container" style="background-color:#f1f1f1">
+        <div id="form" class="containermodal" style="background-color:#f1f1f1">
           <form id="allotform" class="form-custom" method="POST">
             <div class="container">
               <h1>ALLOCATION</h1>
@@ -314,14 +314,16 @@
         <div class="imgcontainer">
           <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
+            <button type= "button" class="close" data-dismiss="modal" area-hidden="true">x</button>
         </div>
-        <div class="container" style="background-color:#f1f1f1">
+        <div class="containermodal" style="background-color:#f1f1f1">
           <form id="predform" class="form-custom">
             <div class="container">
+
               <h1>PREDICTION</h1>
               <p>Please fill in this form</p>
               <hr>
-              <label for="work_type"><b>Deartment</b></label>
+              <label for="work_type"><b>Department</b></label>
               <select class="form-control" type="text" id="fvunit" name="work_type" required>
                 <option style="color:black;">Select</option>
                 <option value=0 style="color:black;">Human Resource</option>

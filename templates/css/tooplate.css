@@ -406,6 +406,13 @@ footer {
   }
 }
 
+@media (min-width: 1200px) {
+  .containermodal {
+     width: 600px;
+     margin-left: 450px;
+  }
+}
+
 @media (max-width: 1275px) and (min-width: 1200px) {
   .nav-item {
     margin-right: 15px;
