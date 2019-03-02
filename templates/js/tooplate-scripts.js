@@ -37,7 +37,11 @@ function drawLineChart() {
           "4",
           "5",
           "6",
-          "7"
+          "7",
+          "8",
+          "9",
+          "10"
+
         ],
         datasets: [
 
@@ -65,6 +69,15 @@ function drawLineChart() {
 }
 
 function drawBarChart() {
+  var data = JSON.parse("["+bar+"]")
+  var data_w = [];
+  var data_wt = [];
+  for(var i=0;i<(data.length-1);i+=2){
+    data_w.push(data[i]);
+    data_wt.push(data[i+1]);
+  }
+  console.log("Siddhant"+data_wt)
+
   if ($("#barChart").length) {
     ctxBar = document.getElementById("barChart").getContext("2d");
 
@@ -101,11 +114,11 @@ function drawBarChart() {
     configBar = {
       type: "bar",
       data: {
-        labels: ["1", "2", "3", "4", "5"],
+        labels: ["1", "2", "3", "4"],
         datasets: [
           {
             label: "Before OAA",
-            data: [18, 20, 14, 23, 3],
+            data: data_w,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(255, 99, 132, 0.2)",
@@ -128,7 +141,7 @@ function drawBarChart() {
           },
           {
             label: "After OAA",
-            data: [13.5, 8.4, 6.4, 6.85, 3],
+            data: data_wt,
             backgroundColor: [
               "rgba(54, 162, 235, 0.2)",
               "rgba(54, 162, 235, 0.2)",

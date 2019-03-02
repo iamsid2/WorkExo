@@ -23,11 +23,11 @@ CORS(app)
 
 @app.route('/')
 def webprint():
-    return render_template('login.html') 
+    return render_template('login.html')
 
 @app.route('/dashboard.html', methods=['POST'])
 def webprint1():
-    return render_template('dashboard.html') 
+    return render_template('dashboard.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -57,7 +57,7 @@ def predictor(test):
     test = test.reshape(1, -1)
     result = classifier.predict(test)
     print("result")
-    print(res(result[0]))    
+    print(res(result[0]))
     ret = {'type' : "JSON/TXT"}
     ret['result'] = str(res(result[0]))
     print(ret)
@@ -82,13 +82,15 @@ def allot():
     projects = []
     graph = []
     for i in project:
-        projects.append({'with':i['with'],'without':i['without']})
+        projects.append(i['with'])
+        projects.append(i['without'])
     print(projects)
-    for k in range(len(projects)-4,len(projects)):
+    for k in range(len(projects)-8,len(projects)):
         graph.append(projects[k])
-    print(graph)
+    print(graph,"Dadaddjskdjsihisjdjksj")
     response1.append(response2)
     response1.append(graph)
+    print("ABCD",response1)
     # for i in worker_types:
     #     for j in range(0,len(data[''+i+''])):
     #         print(data[''+i+''][j]["phone"])
@@ -110,18 +112,18 @@ def allotment(contracts_no,worker_types,worker_no,working_share,contract_duratio
     for i in range(contracts_no):
         for j in range (len(worker_types)):
             s.append(contract_duration[i]*working_share[j] / worker_no[j])
-            
-    s = np.reshape(s, (len(contract_duration), len(worker_types)))     
-    
+
+    s = np.reshape(s, (len(contract_duration), len(worker_types)))
+
     allot = np.zeros(shape = (len(contract_duration), len(worker_types) + 1))
 
     for i in range(len(contract_duration)):
         if i < len(contract_duration) and i >0:
-            allot[i][0] = allot[i-1][1] 
+            allot[i][0] = allot[i-1][1]
         for j in range(1, len(worker_types) + 1):
-            allot[i][j] = allot[i][j-1] + s[i][j-1]           
+            allot[i][j] = allot[i][j-1] + s[i][j-1]
     return allot, cummulative_freq
-        
+
 @app.route('/regd',methods=['POST'])
 def regd():
     name = request.form['name']
