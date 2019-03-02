@@ -11,9 +11,8 @@ $(document).ready(function () {
         formdata[3].value = formdata[3].value.split(" ");
         formdata[4].value = formdata[4].value.split(" ");
         $.post('http://127.0.0.1:8000/allot', formdata, function (data, status) {
-            bar_graph = data[(data.length) - 1];
-            data.pop();
-            console.log(bar_graph);
+            graph = data.pop()
+            console.log(graph);
             cumulative_freq = data[(data.length) - 1];
             data.pop();
             c_oaa = []
@@ -21,18 +20,17 @@ $(document).ready(function () {
               c_oaa.push(data[i][(formdata[0].value)-1])
             }
             console.log(cumulative_freq);
-            console.log("Bye"+data);
+            console.log(data);
             m = formdata[0].value;
             n = formdata[1].value.length + 1;
             console.log(m);
             console.log(n);
-            var myTable = "<table>";
+            var myTable = "<style>";
             for (var i = 0; i < m; i++) {
                 myTable += "<tr>";
                 console.log("Hello");
                 for (var j = 0; j < n; j++) {
-                    myTable += "<td style='width: 100px; color: black;'>" + data[i][j].toFixed(2) + "</td>" + "<hr>";
-
+                    myTable += "<td style='width: 100px; color: black;'>" + data[i][j].toFixed(2) + "</td>" ;   
                 }
                 myTable += "</tr>";
 
@@ -41,7 +39,6 @@ $(document).ready(function () {
             localStorage.setItem("table", myTable);
             localStorage.setItem("c_w", cumulative_freq);
             localStorage.setItem("c_oaa", c_oaa);
-            localStorage.setItem("bar", bar_graph);
             //Local Path
             var loc = window.location.pathname;
             var dir = loc.substring(0,loc.lastIndexOf('/'));
