@@ -4,7 +4,7 @@ import pickle as pk
 
 #importing datasets
 data = pd.read_csv("./datasets/Workexo.csv", usecols = ['JobInvolvement', 'Department','HourlyRate', 'StandardHours','PerformanceRating'])
-data=data.reindex(columns=['Department','JobInvolvement', 'HourlyRate', 'StandardHours','PerformanceRating'])\
+data=data.reindex(columns=['Department','JobInvolvement', 'HourlyRate', 'StandardHours','PerformanceRating'])
 
 #distributing independent and dependent variables
 X = data.iloc[:,:-1].values

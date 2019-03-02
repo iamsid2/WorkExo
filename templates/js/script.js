@@ -34,7 +34,7 @@ $(document).ready(function () {
             // window.onload = function() {
             //     localStorage.setItem("table",myTable);
             // }
-            location.href="file:///home/abinash/Documents/Project/WorkExo/templates/report.html";
+            location.href="file:///home/iamsid/Desktop/Projects_New/WorkExo/templates/report.html";
             // document.getElementById('myTable').innerHTML = myTable;
 
         })
