@@ -16,8 +16,109 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="css/tooplate.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+.city {display:none}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
 
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #8995fa;
+  color: white;
+  padding: 14px 20px;
+  margin: 6px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100\%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-image: url("img/dash-bg-02.jpg");
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
 <body id="reportsPage">
     <div class="" id="home">
         <div class="container">
@@ -26,160 +127,160 @@
                     <nav class="navbar navbar-expand-xl navbar-light bg-light">
                         <a class="navbar-brand" href="#">
                             <i class="fas fa-3x fa-tachometer-alt tm-site-icon"></i>
-                            <h1 class="tm-site-title mb-0">Dashboard</h1>
+                            <h1 class="tm-site-title mb-0">WELCOME</h1>
                         </a>
                         <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                         </button>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">Dashboard
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Reports
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Daily Report</a>
-                                        <a class="dropdown-item" href="#">Weekly Report</a>
-                                        <a class="dropdown-item" href="#">Yearly Report</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="products.html">Products</a>
-                                </li>
+                    
+                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Register for Workers
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="accounts.html">Accounts</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Settings
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Profile</a>
-                                        <a class="dropdown-item" href="#">Billing</a>
-                                        <a class="dropdown-item" href="#">Customize</a>
-                                    </div>
-                                </li>
-                            </ul>
+                                </a>
+                            </li>
+                            
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
+                                More
+                                </a>
+                                
+                           </li>
+                        </ul>
                             <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex" href="login.html">
+                                <li class="nav-item" onclick="document.getElementById('id02').style.display='block'" style="width:auto;>
+                                    <a class="nav-link d-flex" href="index.html">
                                         <i class="far fa-user mr-2 tm-logout-icon"></i>
-                                        <span>Logout</span>
+                                        <span>Login</span>
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                      </div>
                     </nav>
                 </div>
             </div>
-            <!-- row -->
-            <div class="row tm-content-row tm-mt-big">
-                <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
-                        <div class="row">
-                            <div class="col-8">
-                                <h2 class="tm-block-title d-inline-block">Top Product List</h2>
-
-                            </div>
-                            <div class="col-4 text-right">
-                                <a href="products.html" class="tm-link-black">View All</a>
-                            </div>
-                        </div>
-                        <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                            <li class="tm-list-group-item">
-                                Donec eget libero
-                            </li>
-                            <li class="tm-list-group-item">
-                                Nunc luctus suscipit elementum
-                            </li>
-                            <li class="tm-list-group-item">
-                                Maecenas eu justo maximus
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Calendar</h2>
-                        <div id="calendar"></div>
-                        <div class="row mt-4">
-                            <div class="col-12 text-right">
-                                <a href="#" class="tm-link-black">View Schedules</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="tm-col tm-col-small">
-                    <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Upcoming Tasks</h2>
-                        <ol class="tm-list-group">
-                            <li class="tm-list-group-item">List of tasks</li>
-                            <li class="tm-list-group-item">Lorem ipsum doloe</li>
-                            <li class="tm-list-group-item">Read reports</li>
-                            <li class="tm-list-group-item">Write email</li>
-                            
-                            <li class="tm-list-group-item">Call customers</li>
-                            <li class="tm-list-group-item">Go to meeting</li>
-                            <li class="tm-list-group-item">Weekly plan</li>
-                            <li class="tm-list-group-item">Ask for feedback</li>
-                            
-                            <li class="tm-list-group-item">Meet Supervisor</li>
-                            <li class="tm-list-group-item">Company trip</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            
-
         </div>
     </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <!-- https://jquery.com/download/ -->
-    <script src="js/moment.min.js"></script>
-    <!-- https://momentjs.com/ -->
-    <script src="js/utils.js"></script>
-    <script src="js/Chart.min.js"></script>
-    <!-- http://www.chartjs.org/docs/latest/ -->
-    <script src="js/fullcalendar.min.js"></script>
-    <!-- https://fullcalendar.io/ -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- https://getbootstrap.com/ -->
-    <script src="js/tooplate-scripts.js"></script>
-    <script>;
-       let calendar;
-        // DOM is ready
-        $(function () {
-            drawCalendar(); // Calendar
+    
+        <div id="id01" class="modal">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <form class="modal-content" action="/action_page.php">
+            <div class="container">
+              <h1>New Worker Registration</h1>
+              <p>Please fill in this form to create an application request</p>
+              <hr>
+              <label for="name"><b>Name</b></label>
+              <input type="text" placeholder="Name" name="name" required>
+              <label for="name"><b>Phone Number</b></label>
+              <input type="text" placeholder="Number" name="name" required>
+              <label for="name"><b>Skills</b></label>
+              <input type="text" placeholder="Enter Qualifications..." name="name" required>
+                <div class="clearfix">
+                    
+                    <button type="submit" class="signupbtn" >Submit</button>
+                 </div>
+            </div>
+          </form>
+        </div>
 
-            $(window).resize(function () {
-                reloadPage();
-            });
-        })
-    </script>
+        <div id="id02" class="w3-modal">
+ <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+  <header class="w3-container w3-blue"> 
+   <span onclick="document.getElementById('id02').style.display='none'" 
+   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+   <h2>MORE</h2>
+  </header>
+
+  <div class="w3-bar w3-border-bottom">
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">London</button>
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">Paris</button>
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  </div>
+
+  <div id="London" class="w3-container city">
+   <h1>Getting Started</h1>
+   <p>This website improvises the working for M/s Prescience Calibration Ptv. Ltd. by maintaining </p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
+  <div id="Paris" class="w3-container city">
+   <h1>Paris</h1>
+   <p>Paris is the capital of France.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+
+  <div id="Tokyo" class="w3-container city">
+   <h1>Tokyo</h1>
+   <p>Tokyo is the capital of Japan.</p><br>
+  </div>
+
+  <div class="w3-container w3-light-grey w3-padding">
+   <button class="w3-button w3-right w3-white w3-border" 
+   onclick="document.getElementById('id02').style.display='none'">Close</button>
+  </div>
+ </div>
+</div>
+
+</div>
+       
+
+         <div style="color:#f0f0f0; margin-top:200px;margin-left: 270px; width: 800px">
+             
+             <img src="img/heading.png">
+         </div>
+
+         
+
+
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                <script src="js/script.js"></script>
+                <script src="js/jquery-3.3.1.min.js"></script>
+                <!-- https://jquery.com/download/ -->
+                <script src="js/moment.min.js"></script>
+                <!-- https://momentjs.com/ -->
+                <script src="js/utils.js"></script>
+                <script src="js/Chart.min.js"></script>
+                <!-- http://www.chartjs.org/docs/latest/ -->
+                <script src="js/fullcalendar.min.js"></script>
+                <!-- https://fullcalendar.io/ -->
+                <script src="js/bootstrap.min.js"></script>
+                <!-- https://getbootstrap.com/ -->
+                <script src="js/tooplate-scripts.js"></script>
+                <script>
+                // Get the modal
+                var modal = document.getElementById('id01');
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                }
+                document.getElementsByClassName("tablink")[0].click();
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].classList.remove("w3-light-grey");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.classList.add("w3-light-grey");
+}
+                </script>
+
 </body>
 </html>
