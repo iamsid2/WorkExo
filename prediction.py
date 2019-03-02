@@ -45,20 +45,26 @@ def allot():
     })
     return allotment
 def allotment(contracts_no,worker_types,worker_no,working_share,contract_duation):
+    cummulative_freq = []
     s = []
+    cummulative_freq.append(contract_duration[0])
+    for i in range(1, contracts_no):
+        cummulative_freq.append(cummulative_freq[i-1]+contract_duration[i])
+    print(cummulative_freq)
     for i in range(len(contract_duration)):
         for j in range (len(worker_types)):
             s.append(contract_duration[i]*working_share[j] / worker_no[j])
-            
     s = np.reshape(s, (len(contract_duration), len(worker_types)))     
     
-    allot = np.zeros(shape = (len(contract_duration), len(worker_types)))
+    allot = np.zeros(shape = (len(contract_duration), len(worker_types) + 1))
 
     for i in range(len(contract_duration)):
         if i < len(contract_duration) and i >0:
             allot[i][0] = allot[i-1][1] 
-        for j in range(1, len(worker_types)):
+        for j in range(1, len(worker_types) + 1):
             allot[i][j] = allot[i][j-1] + s[i][j-1]
+            
     return allot
+        
 
 app.run(port=8000, debug=True)
