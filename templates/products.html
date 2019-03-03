@@ -90,8 +90,42 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
 
+            <div class="row tm-content-row tm-mt-big" style="margin-left: 350px">
+                <div class="col-xl-8 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                    <div class="bg-white tm-block h-100">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12">
+                                <h2 class="tm-block-title d-inline-block">My Workers List</h2>
+
+                            </div>
+                            <div class="col-md-4 col-sm-12 text-right">
+                                <a href="#" class="btn btn-small btn-primary">Add Workers</a>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <script type="text/javascript">
+                                $(function () {
+                                    $("table#bootstrap_git_demo").on("click", ".remove", function () {
+                                        $(this).closest('tr').remove();
+                                    });
+                                });
+                                $(function () {
+                                    $(".show_tip").tooltip({
+                                        container: 'body'
+                                    });
+                                });
+                                $(document).click(function () {
+                                    $('.tooltip').remove();
+                                    $('[title]').tooltip();
+                                });
+                            </script>
+                            <div id="details"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -103,11 +137,7 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
     <script>
-        $(function () {
-            $('.tm-product-name').on('click', function () {
-                window.location.href = "edit-product.html";
-            });
-        })
+        
         var y = localStorage.getItem("details");
         console.log(y);
         document.getElementById('details').innerHTML = y;
