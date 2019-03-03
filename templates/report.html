@@ -95,6 +95,9 @@
                 <div id="tablePrint" class="Table">
                 </div>
                 </div>
+                <div id="msgalert">
+                </div>
+
             </div>
           </div>
 
@@ -179,6 +182,20 @@
         console.log(x);
         var y = localStorage.getItem("form");
         document.getElementById('inputs').innerHTML = y;
+        var buffer = localStorage.getItem("buff");
+        var flag = localStorage.getItem("flag");
+        function printMssg() {
+            var alert =""
+            if(flag == 0){
+                alert += "We can meet the deadline even with the buffer of" + buffer;
+            }
+            else{
+                alert += "We cannot meet the deadline with the buffer of" + buffer;
+            }
+            return alert;
+        }
+        var msg=printMssg();
+        document.getElementById('msgalert').innerHTML = msg;
     </script>
 </body>
 

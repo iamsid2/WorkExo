@@ -1,6 +1,6 @@
 $(document).ready(function () {
     console.log("script linked");
-    var m, n;
+    var m, n, buffer = 0.12;
     $('#allotform').submit(function (e) {
         e.preventDefault();
         console.log("clicked");
@@ -32,8 +32,7 @@ $(document).ready(function () {
                 console.log("Hello");
                 for (var j = 0; j < n; j++) {
                   myTable += "<td style='border: 1px solid black';>" + data[i][j].toFixed(2) + "</td>";
-
-                }
+              }
                 myTable += "</tr>";
               }
             myTable += "</table>";
@@ -45,6 +44,7 @@ $(document).ready(function () {
             localStorage.setItem("c_w", cumulative_freq);
             localStorage.setItem("c_oaa", c_oaa);
             localStorage.setItem("bar", bar_graph);
+            localStorage.setItem("buff", buffer);
             //Local Path
             var loc = window.location.pathname;
             var dir = loc.substring(0,loc.lastIndexOf('/'));
