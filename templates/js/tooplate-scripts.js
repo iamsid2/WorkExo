@@ -118,7 +118,7 @@ function drawBarChart() {
         datasets: [
           {
             label: "Before OAA",
-            data: data_w,
+            data: data_wt,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(255, 99, 132, 0.2)",
@@ -141,7 +141,7 @@ function drawBarChart() {
           },
           {
             label: "After OAA",
-            data: data_wt,
+            data: data_w,
             backgroundColor: [
               "rgba(54, 162, 235, 0.2)",
               "rgba(54, 162, 235, 0.2)",
