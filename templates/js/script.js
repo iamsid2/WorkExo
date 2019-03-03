@@ -99,12 +99,16 @@ $(document).ready(function () {
         $.get('http://127.0.0.1:8000/dash', function (data, status) {
             data1 = data.pop()
             name = '<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">'
-            for (var i = 0; i < data.length; i++) {
+            if(data.length>=10){
+                max = 10
+            }
+            else{ max=data.length}
+            for (var i = 0; i < max; i++) {
                 name += '<li class="tm-list-group-item">' + data[i].name + '</li>';
             }
             name += '</ol>'
             name1 = '<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">'
-            for (var i = 0; i < data1.length; i++) {
+            for (var i = 0; i < 10; i++) {
                 name1 += '<li class="tm-list-group-item">' + data1[i].first_name +' '+ data1[i].last_name + '</li>';
             }
             name1 += '</ol>'
