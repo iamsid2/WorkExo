@@ -35,7 +35,7 @@ We have used a number of libraries and tools:
 ##### For Model:
 * **Python3** - Used for scripting our model. And many of its libraries were used:
     * **Scikit-Learn 0.19.1** 
-    * **Pandas 0.22.0** - For Data Cleaning.
+    * **Pandas 0.22.0** - For Data Preprocessing.
     * **NumPy 1.14.2** - For mathematical opearations.
     * **Matplotlib 2.2.2** - For visualisations.
 ##### For WebApp:
