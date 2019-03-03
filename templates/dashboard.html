@@ -255,7 +255,7 @@
       <!-- allocating form modal id 01 -->
       <div id="id01" class="modal">
 
-        <div class="imgcontainer containermodal" style="position:absolute; left:450px">
+        <div class="imgcontainer containermodal" style="position:absolute; left:430px">
           <span onclick="document.getElementById('id01').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         </div>
@@ -267,16 +267,16 @@
               <h1>ALLOCATION</h1>
               <p>Please fill in this form</p>
               <hr>
-              <label for="contracts_no"><b>Number of Contracts</b></label><br>
-              <input type="number" placeholder="Enter Number" name="contracts_no" required><br>
-              <label for="worker_types"><b>Type of Workers</b></label>
-              <input type="text" placeholder="Enter Type" name="worker_types" required>
-              <label for="worker_no"><b>Number of Workers</b></label>
-              <input type="text" placeholder="Enter Number" name="worker_no" required>
-              <label for="working_share"><b>Share of Workers</b></label>
-              <input type="text" placeholder="Enter Share" name="working_share" required>
+              <label for="contracts_no"><b>Number of Contracts Received</b></label><br>
+              <input type="number" placeholder="Enter Number(max 4)" name="contracts_no" required><br>
+              <label for="worker_types"><b>Types of Departments</b></label>
+              <input type="text" placeholder="Enter Type (e.g. a b c..)" name="worker_types" required>
+              <label for="worker_no"><b>Number of Workers in Each Department</b></label>
+              <input type="text" placeholder="Enter Number (e.g. 1 1 1..)" name="worker_no" required>
+              <label for="working_share"><b>Departmental-Share of Work per Contract</b></label>
+              <input type="text" placeholder="Enter Share (e.g.  0.2  0.3  0.5)" name="working_share" required>
               <label for="contract_duration"><b>Number of Working days for each contract</b></label>
-              <input type="text" placeholder="Enter Share" name="contract_duration" required>
+              <input type="text" placeholder="Enter No. of days (e.g. 3 5 7..)" name="contract_duration" required>
               <hr>
               <!-- <button id="myButton1" type="submit" class="allotment">Submit</button> -->
               <button id="myButton1" type="submit" class="allotment">submit</button>
@@ -290,7 +290,7 @@
       </div> -->
       <!-- PREDICTION FORM  MODAL ID02 -->
       <div id="id02" class="modal">
-        <div class="imgcontainer containermodal" style="position:absolute; left:450px">
+        <div class="imgcontainer containermodal" style="position:absolute; left:430px">
           <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
 
@@ -310,12 +310,12 @@
                 <option value=1 style="color:black;font-size: 15px">Research & Development</option>
                 <option value=2 style="color:black;font-size: 15px">Sales</option>
               </select><br>
-              <label for="job_involvement"><b>Share of Job</b></label><br>
-              <input type="number" placeholder="Enter share" name="job_involvement" required><br>
+              <label for="job_involvement"><b>Departmental-Share of Job</b></label><br>
+              <input type="number" placeholder="Enter share (from 1 to 4)" name="job_involvement" required><br>
               <label for="hourly_rate"><b>Salary per Hour</b></label><br>
-              <input type="number" placeholder="Enter salary" name="hourly_rate" required><br>
+              <input type="number" placeholder="Enter salary (from 40 to 100 units)" name="hourly_rate" required><br>
               <label for="standard_hrs"><b>Enter Working hrs per 100hrs</b></label><br>
-              <input type="number" placeholder="Enter hrs" name="standard_hrs" required>
+              <input type="number" placeholder="Enter hrs (from 40 to 100 hrs)" name="standard_hrs" required>
               <hr>
               <button id="myButton2" type="submit" class="prediction">Submit</button>
             </div>
