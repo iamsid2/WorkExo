@@ -99,71 +99,71 @@
     background-color: rgba(0, 0, 0, 0.4);
     /* Black w/ opacity */
     padding-top: 40px;
+  }
 
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 10% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+  }
 
-    /* Modal Content/Box */
-    .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto 10% auto;
-      /* 5% from the top, 15% from the bottom and centered */
-      border: 1px solid #888;
-      width: 80%;
-      /* Could be more or less, depending on screen size */
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {
+      -webkit-transform: scale(0)
     }
 
-    /* The Close Button (x) */
-    .close {
-      position: absolute;
-      right: 25px;
-      top: 0;
-      color: #000;
-      font-size: 35px;
-      font-weight: bold;
+    to {
+      -webkit-transform: scale(1)
+    }
+  }
+
+  @keyframes animatezoom {
+    from {
+      transform: scale(0)
     }
 
-    .close:hover,
-    .close:focus {
-      color: red;
-      cursor: pointer;
+    to {
+      transform: scale(1)
+    }
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
     }
 
-    /* Add Zoom Animation */
-    .animate {
-      -webkit-animation: animatezoom 0.6s;
-      animation: animatezoom 0.6s
+    .cancelbtn {
+      width: 100%;
     }
-
-    @-webkit-keyframes animatezoom {
-      from {
-        -webkit-transform: scale(0)
-      }
-
-      to {
-        -webkit-transform: scale(1)
-      }
-    }
-
-    @keyframes animatezoom {
-      from {
-        transform: scale(0)
-      }
-
-      to {
-        transform: scale(1)
-      }
-    }
-
-    /* Change styles for span and cancel button on extra small screens */
-    @media screen and (max-width: 300px) {
-      span.psw {
-        display: block;
-        float: none;
-      }
-
-      .cancelbtn {
-        width: 100%;
-      }
-    }
+  }
 </style>
 
 <body id="reportsPage">
@@ -228,111 +228,114 @@
         <div class="tm-col tm-col-big">
           <div class="bg-white tm-block h-100">
             <div class="row">
-            <h2 class="tm-block-title">My Present Workers List</h2>
-            <div class="col-4 text-right">
+              <div class="col-8">
+                <h2 class="tm-block-title">My Present Workers List</h2>
+              </div>
+              <div class="col-4 text-right">
                 <a id="view" href="products.html" class="tm-link-black">View All</a>
               </div>
-              </div>
             </div>
+            <div id="names1"></div>
           </div>
+        </div>
 
         <div class="tm-col tm-col-small">
           <div class="bg-white tm-block h-100">
             <h2 class="tm-block-title">My Company</h2>
             <ol class="tm-list-group">
               <li class="tm-list-group-item">Present Contracts</li>
-              <li class="tm-list-group-item">Immediate Next  Contracts</li>
+              <li class="tm-list-group-item">Immediate Next Contracts</li>
               <li class="tm-list-group-item">Read reports</li>
               <li class="tm-list-group-item">Write email</li>
 
             </ol>
           </div>
         </div>
-          </div>
-      </div>
-      <!-- allocating form modal id 01 -->
-      <div id="id01" class="modal">
-
-        <div class="imgcontainer containermodal" style="position:absolute; left:430px">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-        </div>
-
-
-        <div id="form" class="containermodal" style="background-color:#f1f1f1">
-          <form id="allotform" class="form-custom" method="POST">
-            <div class="container">
-              <h1>ALLOCATION</h1>
-              <p>Please fill in this form</p>
-              <hr>
-              <label for="contracts_no"><b>Number of Contracts Received</b></label><br>
-              <input type="number" placeholder="Enter Number(max 4)" name="contracts_no" required><br>
-              <label for="worker_types"><b>Types of Departments</b></label>
-              <input type="text" placeholder="Enter Type (e.g. a b c..)" name="worker_types" required>
-              <label for="worker_no"><b>Number of Workers in Each Department</b></label>
-              <input type="text" placeholder="Enter Number (e.g. 1 1 1..)" name="worker_no" required>
-              <label for="working_share"><b>Departmental-Share of Work per Contract</b></label>
-              <input type="text" placeholder="Enter Share (e.g.  0.2  0.3  0.5)" name="working_share" required>
-              <label for="contract_duration"><b>Number of Working days for each contract</b></label>
-              <input type="text" placeholder="Enter No. of days (e.g. 3 5 7..)" name="contract_duration" required>
-              <hr>
-              <!-- <button id="myButton1" type="submit" class="allotment">Submit</button> -->
-              <button id="myButton1" type="submit" class="allotment">submit</button>
-            </div>
-          </form>
-          <!-- <button type="submit" onclick="myFunction()">submit</button> -->
-        </div>
-      </div>
-      <!-- <div id="resultmodal" class="modal">
-        <h1>hii</h1>
-      </div> -->
-      <!-- PREDICTION FORM  MODAL ID02 -->
-      <div id="id02" class="modal">
-        <div class="imgcontainer containermodal" style="position:absolute; left:430px">
-          <span onclick="document.getElementById('id02').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-
-        </div>
-        <div class="containermodal" style="background-color:#f1f1f1">
-          <form id="predform" class="form-custom">
-            <div class="container">
-
-              <h1>PREDICTION</h1>
-              <p>Please fill in this form</p>
-              <hr>
-              <label for="work_type"><b>Department</b></label>
-
-              <select class="form-control" type="text" id="fvunit" name="work_type" style="font-size: 10px; margin: 0"
-                required>
-                <option style="color:black; font-size: 15px">Select</option>
-                <option value=0 style="color:black;font-size: 15px">Human Resource</option>
-                <option value=1 style="color:black;font-size: 15px">Research & Development</option>
-                <option value=2 style="color:black;font-size: 15px">Sales</option>
-              </select><br>
-              <label for="job_involvement"><b>Departmental-Share of Job</b></label><br>
-              <input type="number" placeholder="Enter share (from 1 to 4)" name="job_involvement" required><br>
-              <label for="hourly_rate"><b>Salary per Hour</b></label><br>
-              <input type="number" placeholder="Enter salary (from 40 to 100 units)" name="hourly_rate" required><br>
-              <label for="standard_hrs"><b>Enter Working hrs per 100hrs</b></label><br>
-              <input type="number" placeholder="Enter hrs (from 40 to 100 hrs)" name="standard_hrs" required>
-              <hr>
-              <button id="myButton2" type="submit" class="prediction">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div id="resultmodal" class="modal">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('resultmodal').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-        </div>
-        <div class="container" style="background-color:#f1f1f1">
-          <h1>Result</h1>
-          <p id="resultpara"><b></b></p>
-        </div>
       </div>
     </div>
+    <!-- allocating form modal id 01 -->
+    <div id="id01" class="modal">
+
+      <div class="imgcontainer containermodal" style="position:absolute; left:430px">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+      </div>
+
+
+      <div id="form" class="containermodal" style="background-color:#f1f1f1">
+        <form id="allotform" class="form-custom" method="POST">
+          <div class="container">
+            <h1>ALLOCATION</h1>
+            <p>Please fill in this form</p>
+            <hr>
+            <label for="contracts_no"><b>Number of Contracts Received</b></label><br>
+            <input type="number" placeholder="Enter Number(max 4)" name="contracts_no" required><br>
+            <label for="worker_types"><b>Types of Departments</b></label>
+            <input type="text" placeholder="Enter Type (e.g. a b c..)" name="worker_types" required>
+            <label for="worker_no"><b>Number of Workers in Each Department</b></label>
+            <input type="text" placeholder="Enter Number (e.g. 1 1 1..)" name="worker_no" required>
+            <label for="working_share"><b>Departmental-Share of Work per Contract</b></label>
+            <input type="text" placeholder="Enter Share (e.g.  0.2  0.3  0.5)" name="working_share" required>
+            <label for="contract_duration"><b>Number of Working days for each contract</b></label>
+            <input type="text" placeholder="Enter No. of days (e.g. 3 5 7..)" name="contract_duration" required>
+            <hr>
+            <!-- <button id="myButton1" type="submit" class="allotment">Submit</button> -->
+            <button id="myButton1" type="submit" class="allotment">submit</button>
+          </div>
+        </form>
+        <!-- <button type="submit" onclick="myFunction()">submit</button> -->
+      </div>
+    </div>
+    <!-- <div id="resultmodal" class="modal">
+        <h1>hii</h1>
+      </div> -->
+    <!-- PREDICTION FORM  MODAL ID02 -->
+    <div id="id02" class="modal">
+      <div class="imgcontainer containermodal" style="position:absolute; left:430px">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+
+      </div>
+      <div class="containermodal" style="background-color:#f1f1f1">
+        <form id="predform" class="form-custom">
+          <div class="container">
+
+            <h1>PREDICTION</h1>
+            <p>Please fill in this form</p>
+            <hr>
+            <label for="work_type"><b>Department</b></label>
+
+            <select class="form-control" type="text" id="fvunit" name="work_type" style="font-size: 10px; margin: 0"
+              required>
+              <option style="color:black; font-size: 15px">Select</option>
+              <option value=0 style="color:black;font-size: 15px">Human Resource</option>
+              <option value=1 style="color:black;font-size: 15px">Research & Development</option>
+              <option value=2 style="color:black;font-size: 15px">Sales</option>
+            </select><br>
+            <label for="job_involvement"><b>Departmental-Share of Job</b></label><br>
+            <input type="number" placeholder="Enter share (from 1 to 4)" name="job_involvement" required><br>
+            <label for="hourly_rate"><b>Salary per Hour</b></label><br>
+            <input type="number" placeholder="Enter salary (from 40 to 100 units)" name="hourly_rate" required><br>
+            <label for="standard_hrs"><b>Enter Working hrs per 100hrs</b></label><br>
+            <input type="number" placeholder="Enter hrs (from 40 to 100 hrs)" name="standard_hrs" required>
+            <hr>
+            <button id="myButton2" type="submit" class="prediction">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="resultmodal" class="modal">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('resultmodal').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <h1>Result</h1>
+        <p id="resultpara"><b></b></p>
+      </div>
+    </div>
+  </div>
   </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -362,6 +365,9 @@
     var x = localStorage.getItem("name");
     console.log(x);
     document.getElementById('names').innerHTML = x;
+    var a = localStorage.getItem("name1");
+    console.log(a);
+    document.getElementById('names1').innerHTML = a;
   </script>
 </body>
 

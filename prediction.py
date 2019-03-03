@@ -17,6 +17,8 @@ prev = db.prev
 with open("text_sms.json") as fp:
     data = json.load(fp)
 
+with open("Workers.json") as fp1:
+    data1 = json.load(fp1)
 app = Flask(__name__)
 CORS(app)
 
@@ -162,8 +164,12 @@ def dash():
     regd = db.regd
     resp = regd.find()
     workers = []
+    avworkers = []
     for i in resp:
         workers.append({'name':i['name'],'phone':i['phone'],'skills':i['skills']})
+    for i in range(0,(len(data1))):
+        avworkers.append(data1[i])
+    workers.append(avworkers)
     workers = jsonify(workers)
     return workers
 
@@ -172,8 +178,12 @@ def prod():
     regd = db.regd
     resp = regd.find()
     workers = []
+    avworkers = []
     for i in resp:
         workers.append({'name':i['name'],'phone':i['phone'],'skills':i['skills']})
+    for i in range(0,(len(data1))):
+        avworkers.append(data1[i])
+    workers.append(avworkers)
     workers = jsonify(workers)
     return workers
 
