@@ -191,9 +191,25 @@
                 document.getElementById('msgalert').style.color = 'green';
 
             }
+<<<<<<< Updated upstream
             else {
                 alert += "***We cannot meet the deadline with the buffer of " + buffer;
                 document.getElementById('msgalert').style.color = 'red';
+=======
+            else{
+                alert += "We cannot meet the deadline with the buffer of" + buffer;
+                alert += "Click to recruit new workers";
+                var button = document.createElement("addWorkers");
+                    button.innerHTML = "click me!";
+
+                    button.addEventListener("click", function() {
+                        var loc = window.location.pathname;
+                        var dir = loc.substring(0,loc.lastIndexOf('/'));
+                        location.href= dir+"/product.html";                    
+                    });
+
+document.body.appendChild(button);
+>>>>>>> Stashed changes
             }
             return alert;
         }
