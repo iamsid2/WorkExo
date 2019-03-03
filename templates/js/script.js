@@ -26,19 +26,22 @@ $(document).ready(function () {
             n = formdata[1].value.length + 1;
             console.log(m);
             console.log(n);
-            var myTable = "<table>";
+            var myTable = "<table><tr><td style='border: 1px solid black';>Contract_No</td><td style='border: 1px solid black';>A_Starts</td><td style='border: 1px solid black';>A_Ends/ B_Starts</td><td style='border: 1px solid black';>B_Ends/ C_Starts</td><td style='border: 1px solid black';>End_of_Contract</td></tr>";
             for (var i = 0; i < m; i++) {
-                myTable += "<tr>";
+                myTable += "<tr><td style='border: 1px solid black';>"+(i+1)+"</td>";
                 console.log("Hello");
                 for (var j = 0; j < n; j++) {
-                    myTable += "<td style='width: 100px; color: black;'>" + data[i][j].toFixed(2) + "</td>";
+                  myTable += "<td style='border: 1px solid black';>" + data[i][j].toFixed(2) + "</td>";
 
                 }
                 myTable += "</tr>";
-
-            }
+              }
             myTable += "</table>";
+
+            var form = "<p><b>No_of_Contracts:- </b>"+formdata[0].value+"</p> <p><b>Departments:-</b>"+formdata[1].value+"</p> <p><b>No_of_Workers_per_dept.:- </b>"+formdata[2].value+"</p><p><b>Departmental_Share:-</b>"+formdata[3].value+"</p><p><b>Duration_of_each_Contract:-</b>"+formdata[4].value+"</p>";
+
             localStorage.setItem("table", myTable);
+            localStorage.setItem("form", form);
             localStorage.setItem("c_w", cumulative_freq);
             localStorage.setItem("c_oaa", c_oaa);
             localStorage.setItem("bar", bar_graph);

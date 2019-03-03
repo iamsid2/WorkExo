@@ -80,33 +80,46 @@
             </div>
             <!-- row -->
             <br>
-            <div class="bg-white tm-block h-100" >
-                <div style="margin-left: 320px;">
-                <h2 >Time Allotment Table</h2><br>
-                <div id="tablePrint" class="Table" style="margin-right: 450px;">
+            <div class="row tm-content-row tm-mt-big">
+            <div class="bg-white tm-block tm-col tm-col-big h-100 col-lg-4 ">
+                <div>
+                <h2 >Form Input</h2><br>
+                <div id="inputs">
                 </div>
-            </div></div>
+                </div>
+            </div>
+
+            <div class="bg-white tm-block tm-col tm-col-big h-100 col-lg-7 ">
+                <div>
+                <h2 >Time Allotment Table</h2><br>
+                <div id="tablePrint" class="Table">
+                </div>
+                </div>
+            </div>
+          </div>
+
+
 
             <div class="row tm-content-row tm-mt-big">
 
-                <div class="tm-col tm-col-big">
+                <div class="tm-col tm-col-big col-lg-6">
                     <div class="bg-white tm-block h-100">
                         <h2 class="tm-block-title">Timeline</h2>
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
-                <div class="tm-col tm-col-big">
+                <div class="tm-col tm-col-big col-lg-6">
                     <div class="bg-white tm-block h-100">
                         <h2 class="tm-block-title">Performance</h2>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
-                <div class="tm-col tm-col-small">
+                <!-- <div class="tm-col tm-col-small">
                     <div class="bg-white tm-block h-100">
                         <h2 class="tm-block-title"> Avaibility</h2>
                         <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
                     </div>
-                </div>
+                </div> -->
             </div>
 
 
@@ -137,7 +150,7 @@
             configBar,
             configPie,
             lineChart;
-        barChart, pieChart;
+        barChart;
         var cw = localStorage.getItem("c_w");
         var coa = localStorage.getItem("c_oaa");
         var bar = localStorage.getItem("bar");
@@ -164,6 +177,8 @@
         var x = localStorage.getItem("table");
         document.getElementById('tablePrint').innerHTML = x;
         console.log(x);
+        var y = localStorage.getItem("form");
+        document.getElementById('inputs').innerHTML = y;
     </script>
 </body>
 

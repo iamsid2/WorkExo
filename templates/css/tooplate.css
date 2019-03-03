@@ -487,9 +487,10 @@ footer {
 }
 
 .Table{
- background-color: rgba(54, 162, 235, 0.2);
+ /* background-color: rgba(54, 162, 235, 0.2); */
  text-align: center;
- border: 1px solid black;
+ /* border: 1px solid black; */
+ width: 1000px;
 }
 
 
