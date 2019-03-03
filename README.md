@@ -30,3 +30,39 @@ The admin has access to all the database of workers in different departments of 
 * Predictive Analysis-
 The data analysis is performed on the dummy data set with the independent variables of - Department, Involvment, Hourly Rate and Standard Hours. These attributes predict the Performance Rating of the proposed work plan. After gathering a lot of data from the company the data analysis technique can be used to predict what will be the future trends of allocation according to the current trends.
 
+### Tech
+We have used a number of libraries and tools:
+##### For Model:
+* **Python3** - Used for scripting our model. And many of its libraries were used:
+    * **Scikit-Learn 0.19.1** 
+    * **Pandas 0.22.0** - For Data Cleaning.
+    * **NumPy 1.14.2** - For mathematical opearations.
+    * **Matplotlib 2.2.2** - For visualisations.
+##### For WebApp:
+* **HTML5** - Used for Markup.
+* **CSS3** - For styling the Markup.
+* **Bootstrap3** - For pre-prepared styling classes.
+* **JQuery** - For JavaScript sending requests to the web server.
+* **Flask** - A python library used for creating the web server.
+* **Chart.JS** - For visualisations.
+
+
+### Installing Dependencies 
+
+* To install the libraries required to execute the scripts and run the web-application go to the root folder and execute the following commands:
+```sh
+$ pip3 install -r requirements.txt
+```
+* Generate the model.sav file by executing following command
+```sh
+$ python3 model.py
+```
+
+### How to run?
+* Go to the root directory of the project folder and execute the following commands:
+```sh
+$ python3 prediction.py
+```
+* In a new terminal window execute the following command:
+```sh
+$ xdg-open templates/allocate.html

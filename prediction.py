@@ -107,7 +107,7 @@ def allot():
 def allotment(contracts_no,worker_types,worker_no,working_share,contract_duration):
     cummulative_freq = []
     s = []
-    buffer = 0.12
+    buffer = 0.22
     cummulative_freq.append(contract_duration[0])
     for i in range(1, contracts_no):
         cummulative_freq.append(cummulative_freq[i-1]+contract_duration[i])

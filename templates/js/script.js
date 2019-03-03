@@ -1,6 +1,6 @@
 $(document).ready(function () {
     console.log("script linked");
-    var m, n, buffer = 0.12;
+    var m, n, buffer = 0.22;
     var flag = 0;
     $('#allotform').submit(function (e) {
         e.preventDefault();

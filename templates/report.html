@@ -68,7 +68,7 @@
                             </ul>
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex" href="login.html">
+                                    <a class="nav-link d-flex" href="index.html">
                                         <i class="far fa-user mr-2 tm-logout-icon"></i>
                                         <span>Logout</span>
                                     </a>
@@ -96,6 +96,8 @@
                         </div>
                     </div><br>
                     <div id="msgalert">
+                    </div>
+                    <div id="displayButton">
                     </div>
 
                 </div>
@@ -192,18 +194,20 @@
 
             }
             else{
-                alert += "We cannot meet the deadline with the buffer of" + buffer;
-                alert += "Click to recruit new workers";
-                var button = document.createElement("addWorkers");
-                    button.innerHTML = "click me!";
+                alert += "We cannot meet the deadline with the buffer of " + buffer;
+                document.getElementById('msgalert').style.color = 'red';
 
-                    button.addEventListener("click", function() {
-                        var loc = window.location.pathname;
-                        var dir = loc.substring(0,loc.lastIndexOf('/'));
-                        location.href= dir+"/product.html";
-                    });
+              //   var button = document.createElement("button");
+              //       button.addEventListener("addWorkers", function() {
+              //           var loc = window.location.pathname;
+              //           var dir = loc.substring(0,loc.lastIndexOf('/'));
+              //           location.href= dir+"/product.html";
+              //       });
+              //
+              // document.body.appendChild(button);
 
-document.body.appendChild(button);
+              var ab = "<a href = products.html>Click to recruit new workers</a>"
+              document.getElementById('displayButton').innerHTML = ab;
             }
             return alert;
         }
