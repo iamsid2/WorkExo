@@ -1,6 +1,7 @@
 $(document).ready(function () {
     console.log("script linked");
     var m, n, buffer = 0.12;
+    var flag = 0;
     $('#allotform').submit(function (e) {
         e.preventDefault();
         console.log("clicked");
@@ -39,12 +40,16 @@ $(document).ready(function () {
 
             var form = "<p><b>No_of_Contracts:- </b>"+formdata[0].value+"</p> <p><b>Departments:-</b>"+formdata[1].value+"</p> <p><b>No_of_Workers_per_dept.:- </b>"+formdata[2].value+"</p><p><b>Departmental_Share:-</b>"+formdata[3].value+"</p><p><b>Duration_of_each_Contract:-</b>"+formdata[4].value+"</p>";
 
+            if(cumulative_freq[m-1] < data[m-1][n-1]) {
+              flag=1;
+            }
             localStorage.setItem("table", myTable);
             localStorage.setItem("form", form);
             localStorage.setItem("c_w", cumulative_freq);
             localStorage.setItem("c_oaa", c_oaa);
             localStorage.setItem("bar", bar_graph);
             localStorage.setItem("buff", buffer);
+            localStorage.setItem("flag", flag);
             //Local Path
             var loc = window.location.pathname;
             var dir = loc.substring(0,loc.lastIndexOf('/'));
@@ -76,6 +81,20 @@ $(document).ready(function () {
                 window.alert('please try again');
         })
     })
+
+    $('#deptform').submit(function (e) {
+        e.preventDefault();
+        console.log("clicked");
+        var formdata = $('#deptform').serializeArray();
+        console.log(formdata);
+        $.post('http://127.0.0.1:8000/department', formdata, function (data, status) {
+            if (data == "1")
+                window.alert('successfully registered');
+            else
+                window.alert('please try again');
+        })
+    })
+
     $('#reportspage').ready(function (e) {
         $.get('http://127.0.0.1:8000/dash', function (data, status) {
             name = '<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">'

@@ -94,7 +94,7 @@
                 <h2 >Time Allotment Table</h2><br>
                 <div id="tablePrint" class="Table">
                 </div>
-                </div>
+              </div><br>
                 <div id="msgalert">
                 </div>
 
@@ -187,15 +187,19 @@
         function printMssg() {
             var alert =""
             if(flag == 0){
-                alert += "We can meet the deadline even with the buffer of" + buffer;
+                alert += "***We can meet the deadline even with the buffer of " + buffer;
+                document.getElementById('msgalert').style.color = 'green';
+
             }
             else{
-                alert += "We cannot meet the deadline with the buffer of" + buffer;
+                alert += "***We cannot meet the deadline with the buffer of " + buffer;
+                document.getElementById('msgalert').style.color = 'red';
             }
             return alert;
         }
         var msg=printMssg();
         document.getElementById('msgalert').innerHTML = msg;
+
     </script>
 </body>
 

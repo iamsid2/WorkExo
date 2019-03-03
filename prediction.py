@@ -138,6 +138,25 @@ def regd():
     else:
         return "1"
 
+@app.route('/department',methods=['POST'])
+def dept():
+    collection = db['dept']
+    dept = db.dept
+    date = request.form['date']
+    Department = request.form['Department']
+    totalworkforce = request.form['totalworkforce']
+    totalpresent = request.form['totalpresent']
+    post = {"date":date,
+            "Department":Department,
+            "totalworkforce":totalworkforce,
+            "totalpresent":totalpresent
+            }
+    post_id = dept.insert_one(post).inserted_id
+    if not post_id:
+        return "0"
+    else:
+        return "1"
+
 @app.route('/dash',methods=['GET'])
 def dash():
     regd = db.regd
