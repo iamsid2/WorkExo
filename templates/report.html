@@ -194,20 +194,18 @@
 
             }
             else{
-                alert += "We cannot meet the deadline with the buffer of " + buffer;
-                document.getElementById('msgalert').style.color = 'red';
+                alert += "We cannot meet the deadline with the buffer of" + buffer;
+                alert += "Click to recruit new workers";
+                var button = document.createElement("addWorkers");
+                    button.innerHTML = "click me!";
 
-              //   var button = document.createElement("button");
-              //       button.addEventListener("addWorkers", function() {
-              //           var loc = window.location.pathname;
-              //           var dir = loc.substring(0,loc.lastIndexOf('/'));
-              //           location.href= dir+"/product.html";
-              //       });
-              //
-              // document.body.appendChild(button);
+                    button.addEventListener("click", function() {
+                        var loc = window.location.pathname;
+                        var dir = loc.substring(0,loc.lastIndexOf('/'));
+                        location.href= dir+"/product.html";                    
+                    });
 
-              var ab = "<a href = products.html>Click to recruit new workers</a>"
-              document.getElementById('displayButton').innerHTML = ab;
+document.body.appendChild(button);
             }
             return alert;
         }
