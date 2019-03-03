@@ -153,4 +153,28 @@ $(document).ready(function () {
             localStorage.setItem("details1", details1);
         })
     })
+
+    $('#deptpage').ready(function (e) {
+        $.get('http://127.0.0.1:8000/dept', function (data, status) {
+          detail1 = '<table class="table table-hover table-striped tm-table-striped-even mt-3"id="details bootstrap_git_demo">'+'<thead>' +
+              '<tr class="tm-bg-gray">' +
+              '<th scope="col">&nbsp;</th>' +
+              '<th scope="col">Date</th>' +
+              '<th scope="col" class="text-center">Department</th>' +
+
+              '<th scope="col">Total Work Force</th>' +
+              '<th scope="col">Total Present</th>' +
+              '<th scope="col">&nbsp;</th>' +
+              '</tr>' +
+              '</thead>' + '<tbody>'
+          for (var i = 0; i < data.length; i++) {
+              detail1 += '<tr><th scope="row">' +
+                  '</th>' + '<td class="tm-product-name">'+data[i].date + '</td>' +
+                  '<td class="text-center">' + data[i].department + '</td>' +
+                  '<td>' + data[i].totalworkforce + '</td><td>' + data[i].totalpresent + '</td> <td><i class="fas fa-trash-alt tm-trash-icon"></i></td></tr>'
+          }
+          detail1 += '</tbody>'+'</table>'
+          localStorage.setItem("deptDetails", detail1);
+        })
+    })
 })

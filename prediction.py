@@ -113,8 +113,8 @@ def allotment(contracts_no,worker_types,worker_no,working_share,contract_duratio
         cummulative_freq.append(cummulative_freq[i-1]+contract_duration[i])
     for i in range(contracts_no):
         for j in range (len(worker_types)):
-            s.append(contract_duration[i]*(working_share[j] + buffer) / worker_no[j])   
-    s = np.reshape(s, (len(contract_duration), len(worker_types)))     
+            s.append(contract_duration[i]*(working_share[j] + buffer) / worker_no[j])
+    s = np.reshape(s, (len(contract_duration), len(worker_types)))
     allot = np.zeros(shape = (len(contract_duration), len(worker_types) + 1))
 
     for i in range(len(contract_duration)):
@@ -143,13 +143,14 @@ def regd():
 @app.route('/department',methods=['POST'])
 def dept():
     collection = db['dept']
+    print("Hloooo")
     dept = db.dept
     date = request.form['date']
-    Department = request.form['Department']
+    department = request.form['department']
     totalworkforce = request.form['totalworkforce']
     totalpresent = request.form['totalpresent']
     post = {"date":date,
-            "Department":Department,
+            "department":department,
             "totalworkforce":totalworkforce,
             "totalpresent":totalpresent
             }
@@ -186,6 +187,16 @@ def prod():
     workers.append(avworkers)
     workers = jsonify(workers)
     return workers
+
+@app.route('/dept',methods=['GET'])
+def dep():
+    regd = db.dept
+    resp = regd.find()
+    d_workers = []
+    for i in resp:
+        d_workers.append({'date':i['date'],'department':i['department'],'totalworkforce':i['totalworkforce'],'totalpresent':i['totalpresent']})
+    d_workers = jsonify(d_workers)
+    return d_workers
 
 
 app.run(port=8000, debug=True)

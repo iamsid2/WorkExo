@@ -65,17 +65,17 @@ input[type=submit] {
 <h1 style="color: #f0f0f0; margin-left:570px">Work Tracker</h1>
 
 <div class="container">
-  <form id="deptform">
+  <form id="deptform" class="form-custom">
     <a for="date">Date</a>
     <input type="date" id="date" name="date" placeholder="enter date" required>
 
 
 
     <a for="Department" >Department Name</a>
-    <select id="Department" name="Department">
-      <option value="Department A">Department A</option>
-      <option value="Department B">Department B</option>
-      <option value="Department C">Department C</option>
+    <select id="Department" name="department">
+      <option value="A">Department A</option>
+      <option value="B">Department B</option>
+      <option value="C">Department C</option>
     </select>
     <a for="Total">Total Workforce</a>
     <input type="number" id="totalworkforce" name="totalworkforce" placeholder="enter total number" required="">
@@ -88,6 +88,8 @@ input[type=submit] {
     <input type="submit" value="Submit" >
   </form>
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/script.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 </body>
 </html>
