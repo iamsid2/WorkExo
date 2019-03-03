@@ -101,69 +101,69 @@
     padding-top: 40px;
 
 
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 10% auto;
-    /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
-  }
-
-  /* The Close Button (x) */
-  .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: red;
-    cursor: pointer;
-  }
-
-  /* Add Zoom Animation */
-  .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-  }
-
-  @-webkit-keyframes animatezoom {
-    from {
-      -webkit-transform: scale(0)
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 10% auto;
+      /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
     }
 
-    to {
-      -webkit-transform: scale(1)
-    }
-  }
-
-  @keyframes animatezoom {
-    from {
-      transform: scale(0)
-    }
-
-    to {
-      transform: scale(1)
-    }
-  }
-
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-      display: block;
-      float: none;
+    /* The Close Button (x) */
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
     }
 
-    .cancelbtn {
-      width: 100%;
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
     }
-  }
+
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+      from {
+        -webkit-transform: scale(0)
+      }
+
+      to {
+        -webkit-transform: scale(1)
+      }
+    }
+
+    @keyframes animatezoom {
+      from {
+        transform: scale(0)
+      }
+
+      to {
+        transform: scale(1)
+      }
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+
+      .cancelbtn {
+        width: 100%;
+      }
+    }
 </style>
 
 <body id="reportsPage">
@@ -192,6 +192,9 @@
 
                 <li class="nav-item">
                   <a class="nav-link" onclick="document.getElementById('id02').style.display='block'">Prediction</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="products.html">Workers</a>
                 </li>
 
               </ul>
@@ -304,7 +307,8 @@
               <hr>
               <label for="work_type"><b>Department</b></label>
 
-              <select class="form-control" type="text" id="fvunit" name="work_type" style="font-size: 10px; margin: 0" required>
+              <select class="form-control" type="text" id="fvunit" name="work_type" style="font-size: 10px; margin: 0"
+                required>
                 <option style="color:black; font-size: 15px">Select</option>
                 <option value=0 style="color:black;font-size: 15px">Human Resource</option>
                 <option value=1 style="color:black;font-size: 15px">Research & Development</option>
