@@ -131,6 +131,8 @@
     display: table;
   }
 
+
+
   /* Change styles for cancel button and signup button on extra small screens */
   @media screen and (max-width: 300px) {
 
@@ -139,6 +141,41 @@
       width: 100%;
     }
   }
+  /* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+/* Global */
+html{
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(40) 1s  infinite both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
 </style>
 
 <body id="reportsPage">
@@ -195,6 +232,9 @@
       </div>
     </div>
   </div>
+
+<p class="line-1 anim-typewriter" style="color: #f0f0f0; margin-top: 200px; font-size: 60px; background: grey;
+  background-clip: padding-box; ">M/s Prescience Calibration Pvt. Ltd.</p>
 
   <div id="id01" class="modal">
     <span onclick="document.getElementById('id01').style.display='none'" class="close"
@@ -273,11 +313,7 @@
   </div>
 
 
-  <div style="color:#f0f0f0; margin-top:200px;margin-left: 270px; width: 800px">
-    <img src="img/heading.png">
-  </div>
-
-
+  
 
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

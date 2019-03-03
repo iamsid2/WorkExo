@@ -246,21 +246,21 @@ function drawCalendar() {
       events: [
         {
           title: "Meeting",
-          start: "2018-09-1",
+          start: "2019-03-03",
           end: "2018-09-2"
         },
         {
           title: "Marketing trip",
-          start: "2018-09-6",
-          end: "2018-09-8"
+          start: "2019-03-5",
+          
         },
         {
           title: "Follow up",
-          start: "2018-10-12"
+          start: "2019-03-12"
         },
         {
           title: "Team",
-          start: "2018-10-17"
+          start: "2019-03-25"
         },
         {
           title: "Company Trip",
@@ -269,7 +269,7 @@ function drawCalendar() {
         },
         {
           title: "Review",
-          start: "2019-1-1"
+          start: "2019-04-1"
         },
         {
           title: "Plan",
