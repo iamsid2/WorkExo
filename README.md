@@ -30,15 +30,15 @@ The admin has access to all the database of workers in different departments of 
 * Predictive Analysis-
 The data analysis is performed on the dummy data set with the independent variables of - Department, Involvment, Hourly Rate and Standard Hours. These attributes predict the Performance Rating of the proposed work plan. After gathering a lot of data from the company the data analysis technique can be used to predict what will be the future trends of allocation according to the current trends.
 
-### Tech
-We have used a number of libraries and tools:
-##### For Model:
+### Technologies Used -:
+A number of libraries and tools have been used:
+##### Data Analysis:
 * **Python3** - Used for scripting our model. And many of its libraries were used:
     * **Scikit-Learn 0.19.1** 
     * **Pandas 0.22.0** - For Data Preprocessing.
     * **NumPy 1.14.2** - For mathematical opearations.
     * **Matplotlib 2.2.2** - For visualisations.
-##### For WebApp:
+##### Web App:
 * **HTML5** - Used for Markup.
 * **CSS3** - For styling the Markup.
 * **Bootstrap3** - For pre-prepared styling classes.
